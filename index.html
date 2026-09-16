@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piggy Privacy Policy</title>
+<meta name="description" content="Piggy's privacy policy: your budget stays on your phone. What is stored, what anonymous usage counts leave the device, and how to switch them off.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+</head>
+<body>
+<style>
+  :root {
+    --paper: #FBFAF7;
+    --card: #FFFFFF;
+    --line: #DFDDD6;
+    --ink: #1B1A24;
+    --ink-dim: #55535F;
+    --pink: #B82A8E;
+    --teal: #0C7C6C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15161F;
+      --card: #1E1F2B;
+      --line: #32333F;
+      --ink: #EDECF2;
+      --ink-dim: #A7A5B4;
+      --pink: #F07FCB;
+      --teal: #3ACBB2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15161F;
+    --card: #1E1F2B;
+    --line: #32333F;
+    --ink: #EDECF2;
+    --ink-dim: #A7A5B4;
+    --pink: #F07FCB;
+    --teal: #3ACBB2;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.62;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding-inline: 20px; padding-block: 52px 80px; }
+
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(32px, 7vw, 46px); line-height: 1.05; letter-spacing: -0.015em; }
+  h2 { font-size: clamp(20px, 3.5vw, 24px); line-height: 1.2; }
+  p { margin: 0; }
+  a { color: var(--teal); }
+
+  header { display: flex; flex-direction: column; gap: 12px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .stamp {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim);
+  }
+  .summary {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: clamp(19px, 3.4vw, 22px);
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .summary b { color: var(--pink); font-weight: 600; }
+
+  section { display: flex; flex-direction: column; gap: 12px; margin-top: 38px; }
+  section p, section li { color: var(--ink-dim); }
+  section p strong, section li strong { color: var(--ink); font-weight: 600; }
+  ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+
+  .facts { border: 1px solid var(--line); border-radius: 12px; background: var(--card); overflow: hidden; }
+  .fact { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .fact:last-child { border-bottom: 0; }
+  .fact dt { font-weight: 600; color: var(--ink); }
+  .fact dd { margin: 0; color: var(--ink-dim); }
+  @media (max-width: 560px) { .fact { grid-template-columns: 1fr; gap: 4px; } }
+
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--pink); }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 14.5px; display: flex; flex-direction: column; gap: 6px; }
+
+  @page { size: A4; margin: 18mm 16mm; }
+  @media print {
+    :root { --paper: #FFFFFF; --card: #FFFFFF; --line: #C9C7C0; --ink: #000000; --ink-dim: #2B2A33; --pink: #8E1F6D; --teal: #0A5F53; }
+    body { font-size: 10.5pt; line-height: 1.45; }
+    .wrap { max-width: none; padding: 0; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 13pt; }
+    section, .facts, .fact { break-inside: avoid; }
+    a { color: var(--ink); text-decoration: none; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="stamp">Piggy · Privacy Policy · effective 16 September 2026</div>
+    <h1>What Piggy knows about you</h1>
+    <p class="summary">Almost nothing. <b>Your budget never leaves your phone.</b> There is no account on a server, no bank connection and no advertising. The only thing Piggy sends anywhere is a list of anonymous event names, and you can switch that off.</p>
+  </header>
+
+  <section>
+    <h2>Who this is</h2>
+    <p>Piggy is made by Artur Beginyan, an individual developer in Armenia. Contact for anything in this policy: <a href="mailto:beginyan.arthur@gmail.com">beginyan.arthur@gmail.com</a>.</p>
+  </section>
+
+  <section>
+    <h2>What stays on your phone</h2>
+    <p>All of it. Piggy stores the following in the app's own storage on your device, and sends none of it anywhere:</p>
+    <ul>
+      <li>Your <strong>bags</strong>, their names, icons, colours and cover photos</li>
+      <li>Every <strong>amount</strong> you plan, allocate, spend or move, and any note you write</li>
+      <li>Your <strong>account name and email</strong>, which exist only to separate accounts on the same phone</li>
+      <li>Your <strong>password</strong>, stored as a hash, never in readable form</li>
+      <li>Your <strong>settings</strong>: theme, accent, hidden amounts, Face ID preference</li>
+    </ul>
+    <p>Because there is no server, nobody can read this, including me. It also means that if you delete the app, the data goes with it. Settings has an export, and a backup file is yours to keep wherever you choose.</p>
+  </section>
+
+  <section>
+    <h2>What leaves your phone</h2>
+    <p>One thing: <strong>anonymous usage counts</strong>. When you do something in Piggy, the app sends a bare event name, such as <code>bag_made</code> or <code>expense_logged</code>, to TelemetryDeck, an analytics service based in Germany.</p>
+    <div class="facts">
+      <dl style="margin:0">
+        <div class="fact"><dt>What is sent</dt><dd>The event name, the app version, your phone's model and iOS version, and a random identifier created on your device</dd></div>
+        <div class="fact"><dt>What is never sent</dt><dd>Amounts, bag names, notes, your name, your email, your password, your photos, your location, your contacts</dd></div>
+        <div class="fact"><dt>The identifier</dt><dd>A random string made by the app. It is not your Apple ID, not an advertising id, and cannot be matched to you or to any other app</dd></div>
+        <div class="fact"><dt>Why</dt><dd>To see which parts of Piggy people use, so the app can be improved</dd></div>
+        <div class="fact"><dt>How to stop it</dt><dd>Settings › Privacy › Usage counts. Off means nothing is recorded or sent</dd></div>
+      </dl>
+    </div>
+    <p>TelemetryDeck receives the events, does not retain IP addresses and does not build profiles. Their own policy is at <a href="https://telemetrydeck.com/privacy/">telemetrydeck.com/privacy</a>.</p>
+  </section>
+
+  <section>
+    <h2>What Apple sees</h2>
+    <p>Piggy is distributed through Apple, which collects its own data about downloads, and during beta testing about sessions and crashes. That happens on Apple's side, under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>, and nothing in it identifies what you do inside Piggy.</p>
+    <p>If Piggy later sells a paid plan, payment is handled entirely by Apple. Card details never reach the app or me.</p>
+  </section>
+
+  <section>
+    <h2>No advertising, no tracking, no selling</h2>
+    <p>There are no ads in Piggy, no advertising identifiers, no third party trackers and no sale or sharing of anything about you. Piggy does not track you across apps or websites, which is why it never asks for tracking permission.</p>
+  </section>
+
+  <section>
+    <h2>Your control</h2>
+    <ul>
+      <li><strong>Switch off the counts</strong> in Settings › Privacy at any time.</li>
+      <li><strong>Delete your account</strong> in Settings › Data. It removes that account and everything in it from the phone at once.</li>
+      <li><strong>Delete the app</strong> to remove everything Piggy stored.</li>
+      <li><strong>Export a backup</strong> in Settings › Data before you do either, if you want to keep your history.</li>
+    </ul>
+    <p>Since the events are anonymous and hold nothing about you, there is no personal record on my side to show you, correct or erase. If you believe otherwise, write to me and I will look into it.</p>
+  </section>
+
+  <section>
+    <h2>Children</h2>
+    <p>Piggy is not directed at children under 13 and collects nothing that would identify anyone, of any age.</p>
+  </section>
+
+  <section>
+    <h2>Changes</h2>
+    <p>If what Piggy collects ever changes, this page changes with it and the date at the top moves. Anything that would send more than the events above would be announced in the app before it started.</p>
+  </section>
+
+  <footer>
+    <span>Piggy · Artur Beginyan · Armenia</span>
+    <span>Questions: <a href="mailto:beginyan.arthur@gmail.com">beginyan.arthur@gmail.com</a></span>
+    <span>Last updated 16 September 2026</span>
+  </footer>
+</div>
+</body>
+</html>
