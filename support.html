@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piggy Support</title>
+<meta name="description" content="Help with Piggy: contact, backups, passwords, deleting an account, and what the app sends.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+</head>
+<body>
+<style>
+  :root {
+    --paper: #FBFAF7;
+    --card: #FFFFFF;
+    --line: #DFDDD6;
+    --ink: #1B1A24;
+    --ink-dim: #55535F;
+    --pink: #B82A8E;
+    --teal: #0C7C6C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15161F;
+      --card: #1E1F2B;
+      --line: #32333F;
+      --ink: #EDECF2;
+      --ink-dim: #A7A5B4;
+      --pink: #F07FCB;
+      --teal: #3ACBB2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15161F;
+    --card: #1E1F2B;
+    --line: #32333F;
+    --ink: #EDECF2;
+    --ink-dim: #A7A5B4;
+    --pink: #F07FCB;
+    --teal: #3ACBB2;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.62;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding-inline: 20px; padding-block: 52px 80px; }
+
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(32px, 7vw, 46px); line-height: 1.05; letter-spacing: -0.015em; }
+  h2 { font-size: clamp(20px, 3.5vw, 24px); line-height: 1.2; }
+  p { margin: 0; }
+  a { color: var(--teal); }
+
+  header { display: flex; flex-direction: column; gap: 12px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .stamp {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim);
+  }
+  .summary {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: clamp(19px, 3.4vw, 22px);
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .summary b { color: var(--pink); font-weight: 600; }
+
+  section { display: flex; flex-direction: column; gap: 12px; margin-top: 38px; }
+  section p, section li { color: var(--ink-dim); }
+  section p strong, section li strong { color: var(--ink); font-weight: 600; }
+  ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+
+  .facts { border: 1px solid var(--line); border-radius: 12px; background: var(--card); overflow: hidden; }
+  .fact { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .fact:last-child { border-bottom: 0; }
+  .fact dt { font-weight: 600; color: var(--ink); }
+  .fact dd { margin: 0; color: var(--ink-dim); }
+  @media (max-width: 560px) { .fact { grid-template-columns: 1fr; gap: 4px; } }
+
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--pink); }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 14.5px; display: flex; flex-direction: column; gap: 6px; }
+
+  @page { size: A4; margin: 18mm 16mm; }
+  @media print {
+    :root { --paper: #FFFFFF; --card: #FFFFFF; --line: #C9C7C0; --ink: #000000; --ink-dim: #2B2A33; --pink: #8E1F6D; --teal: #0A5F53; }
+    body { font-size: 10.5pt; line-height: 1.45; }
+    .wrap { max-width: none; padding: 0; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 13pt; }
+    section, .facts, .fact { break-inside: avoid; }
+    a { color: var(--ink); text-decoration: none; }
+  }
+</style>
+
+<style>
+  .qa { display: flex; flex-direction: column; gap: 8px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .qa:last-child { border-bottom: 1px solid var(--line); }
+  .qa h3 { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 19px; margin: 0; color: var(--ink); text-wrap: balance; }
+  .qa p { color: var(--ink-dim); }
+  .path { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--pink); white-space: nowrap; }
+  .contact { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .contact a { font-size: 19px; font-weight: 600; }
+  .contact p { color: var(--ink-dim); }
+</style>
+<div class="wrap">
+  <header>
+    <div class="stamp">Piggy · Support</div>
+    <h1>Getting help with Piggy</h1>
+    <p class="summary">Piggy has no server, so <b>nobody but you can see or recover your budget.</b> Most answers below come from that one fact.</p>
+  </header>
+
+  <section>
+    <h2>Write to me</h2>
+    <div class="contact">
+      <a href="mailto:beginyan.arthur@gmail.com">beginyan.arthur@gmail.com</a>
+      <p>Piggy is made by one person. I read everything and usually answer within a few days. A screenshot of what you are looking at helps more than a description of it.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Common questions</h2>
+    <div>
+      <div class="qa">
+        <h3>Where is my budget stored?</h3>
+        <p>Only on your phone. There is no account on a server and no bank connection, which also means I cannot see your data or recover it for you.</p>
+      </div>
+      <div class="qa">
+        <h3>How do I keep a backup, or move to a new phone?</h3>
+        <p>Open <span class="path">Settings › Your data › Export a copy</span> and save the file somewhere safe, such as iCloud Drive. On the new phone, install Piggy and use <span class="path">Settings › Your data › Choose a file</span> to restore it. Export regularly: if Piggy is deleted, its data goes with it.</p>
+      </div>
+      <div class="qa">
+        <h3>I forgot my password.</h3>
+        <p>On the login screen tap <b>Forgot password?</b>. Piggy asks you to confirm it is you with Face ID or your phone's passcode, then lets you set a new password. This only works if your phone has a passcode or Face ID set up.</p>
+      </div>
+      <div class="qa">
+        <h3>How do I delete my account?</h3>
+        <p>Open <span class="path">Settings › Your data › Delete this account</span>. You type your email to confirm, and the account and everything in it are removed from the phone. There is no undo, so export a copy first if you might want it back.</p>
+      </div>
+      <div class="qa">
+        <h3>What does Piggy send, and can I turn it off?</h3>
+        <p>Anonymous event names, such as "a bag was made", with a random id, your app version and phone model. Never amounts, bag names, notes or your email. Turn it off in <span class="path">Settings › Privacy › Usage counts</span>. The full details are in the <a href="./">privacy policy</a>.</p>
+      </div>
+      <div class="qa">
+        <h3>Is Piggy free?</h3>
+        <p>Yes. While Piggy is in beta every feature is unlocked, including Golden Piggy. When Golden Piggy goes on sale later, nothing you have already made is taken away.</p>
+      </div>
+      <div class="qa">
+        <h3>Something is broken or confusing.</h3>
+        <p>Please tell me. Email with a screenshot, or if you are testing through TestFlight, take a screenshot inside Piggy and choose <b>Share Beta Feedback</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Piggy · Artur Beginyan · Armenia</span>
+    <span><a href="./">Privacy policy</a> · <a href="mailto:beginyan.arthur@gmail.com">beginyan.arthur@gmail.com</a></span>
+    <span>Last updated 17 September 2026</span>
+  </footer>
+</div>
+</body>
+</html>
